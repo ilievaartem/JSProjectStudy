@@ -14,6 +14,21 @@ for (let i = 1; i < length; i++){
 
 console.log(result);
 
+const lines = 5;
+let resul = '';
+
+for (let i = 0; i <= lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        resul += " ";
+    }
+    for (let j = 0; j < 2 * i + 1; j++) {
+        resul += "*";
+    }
+    resul += "\n";
+}
+
+console.log(resul)
+
 // first - мітка
 first: for(let i = 0; i < 3; i++){
     console.log(`First level: ${i}`);
