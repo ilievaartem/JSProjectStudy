@@ -12,7 +12,7 @@ function fib(number){
             } else {
                 result += `${first} `;
             }
-            
+
             let third = first + second;
             first = second;
             second = third;
@@ -40,7 +40,7 @@ first: for(let i = 0; i < 3; i++){
 let numberOfFilms;
 
 function start(){
-    numberOfFilms = +prompt('Скільки фільмів ви переглянули?', '');
+    numberOfFilms = +prompt('Скільки фільмів ви переглянули?', '').trim();
 
     while (numberOfFilms == null || numberOfFilms == '' || isNaN(numberOfFilms)) {
         numberOfFilms = +prompt('Скільки фільмів ви переглянули?', '');
