@@ -1,35 +1,32 @@
 "use strict"
 
-let result = '';
-const length = 7;
+function fib(number){
+    let result = '';
+    let first = 0;
+    let second = 1; 
 
-for (let i = 1; i < length; i++){
-
-    for (let j = 0; j < i; j++){
-        result += "*";
+    if(typeof(number) === 'number' || number !== 0 || !Number.isInteger(number)) {
+        for(let i = 0; i < number; i++) {
+            if (i + 1 === number) {
+                result += `${first}`;
+            } else {
+                result += `${first} `;
+            }
+            
+            let third = first + second;
+            first = second;
+            second = third;
+        }    
+    } else {
+        return result;
     }
 
-    result += '\n';
+    console.log(result);
+    return result;
 }
 
-console.log(result);
+fib(4);
 
-const lines = 5;
-let resul = '';
-
-for (let i = 0; i <= lines; i++) {
-    for (let j = 0; j < lines - i; j++) {
-        resul += " ";
-    }
-    for (let j = 0; j < 2 * i + 1; j++) {
-        resul += "*";
-    }
-    resul += "\n";
-}
-
-console.log(resul)
-
-// first - мітка
 first: for(let i = 0; i < 3; i++){
     console.log(`First level: ${i}`);
     for(let j = 0; j < 3; j++){
