@@ -54,7 +54,10 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    private: false
+    private: false,
+    makeTest: function() {
+        console.log("Test");
+    }
 };
 
 function rememberMyFilm() {
@@ -101,3 +104,20 @@ function writeYourGenres() {
 }
 
 writeYourGenres();
+
+let counter = 0;
+for (const key in personalMovieDB) {
+    if (typeof(personalMovieDB[key]) === 'object') {
+        for (const i in personalMovieDB[key]) {
+            console.log(`Властивість ${i} має значення ${personalMovieDB[key][i]}`);
+            counter++;
+        } 
+    } else {
+        console.log(`Властивість ${key} має значення ${personalMovieDB[key]}`);
+        counter++;
+    }
+}
+
+//better
+
+console.log(Object.keys(personalMovieDB).length);
