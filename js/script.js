@@ -12,7 +12,6 @@ function fib(number){
             } else {
                 result += `${first} `;
             }
-
             let third = first + second;
             first = second;
             second = third;
