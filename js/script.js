@@ -120,3 +120,95 @@ for (const key in personalMovieDB) {
 //better
 
 console.log(Object.keys(personalMovieDB).length);
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let str = `Мне ${age} и я владею языками: `;
+
+        languages.forEach(function(lang) {
+            str += `${lang.toUpperCase()} `;
+        });
+
+        return str;
+    }
+};
+
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
+
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+    let str = '';
+    const {programmingLangs} = plan.skills;
+    for (let key in programmingLangs) {
+        str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+    }
+
+    return str;
+}
+
+showProgrammingLangs(personalPlanPeter);
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    let someRev = '';
+
+    if(typeof(str) !== 'string') { 
+        return "Ошибка!"
+    }
+
+    someRev =  [...str].reverse().join("");
+    // someRev = str.split('').reverse().join('');
+    // for (let i = str.length - 1; i >= 0; i--) {
+    //     someRev += str[i];
+    // }
+
+    return someRev;
+}
+
+const result = reverse(someString);
+
+console.log(result);
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+    let str = 'Доступные валюты:\n';
+    if(Array.isArray(arr) && arr.length === 0) {
+        return 'Нет доступных валют';
+    }
+
+    for(let value of arr){
+        if(value === missingCurr){
+            value --;
+        } else {
+            str += `${value}\n`;            
+        }
+    }
+    return str;
+}
+
+const allCurrencies = [...baseCurrencies, ...additionalCurrencies];
+
+const a = availableCurr(allCurrencies, 'CNY');
+
+console.log(a);
